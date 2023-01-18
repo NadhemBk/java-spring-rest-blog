@@ -14,6 +14,8 @@ import java.util.List;
 
 @Entity
 public class Post {
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Author author;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -70,6 +72,14 @@ public class Post {
 
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
     }
 
     @Override
